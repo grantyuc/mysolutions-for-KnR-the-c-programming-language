@@ -35,7 +35,7 @@ int main()
     }
     if (max > 0) /* there was a line */
         printf("\nlongest line: %s", longest);
-    if (tlen > MAXLINE)
+    if (max > MAXLINE)
         printf("...");
     printf("\n");
     return 0;
