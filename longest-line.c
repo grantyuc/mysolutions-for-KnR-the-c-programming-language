@@ -15,18 +15,29 @@ void copy(char to[], char from[]);
 int main()
 {
     int len;    /* current line length */
+    int tlen;   /* total line length */
     int max;    /* maximum length seen so far */
     char line[MAXLINE];     /* current input line */
+    char temp[MAXLINE];     /* temp input line */
     char longest[MAXLINE];  /* longest line saved here */
     
     max = 0;
-    while ((len = get_line(line, MAXLINE)) > 0)
-        if (len > max) {
-            max = len;
+    while ((tlen = len = get_line(temp, MAXLINE)) > 0) {
+        copy(line, temp);
+        while (len == MAXLINE - 1 && temp[len - 1] != '\n') { /* keep reading until end of line */
+            len = get_line(temp, MAXLINE);
+            tlen += len;
+        }
+        if (tlen > max) {
+            max = tlen;
             copy(longest, line);
         }
+    }
     if (max > 0) /* there was a line */
-        printf("\nlongest line: %s\n", longest);
+        printf("\nlongest line: %s", longest);
+    if (tlen > MAXLINE)
+        printf("...");
+    printf("\n");
     return 0;
 }
 
@@ -39,15 +50,8 @@ int get_line(char s[], int lim)
     if (c == '\n') {
         s[i] = c;
         ++i;        
-        s[i] = '\0';
     }
-    else if (i == lim-1) {  /* exceed limit, end line, keep counting */
-        s[i] = '\0';
-        for (--i; (c=getchar())!=EOF && c!='\n'; ++i);
-        if (c == '\n') {
-            ++i;
-        } 
-    }
+    s[i] = '\0';
     return i;
 }
 
