@@ -1,6 +1,6 @@
 /*************************************************************************
   > File Name: temperature_heading_func.c
-  > Description: Ex. 1-15
+  > Description: Ex. 1-15 in K&R
   > Author: Chen, Guan-Yu
   > Created Time: Mon Jan 27 14:06:25 2020
  ************************************************************************/
