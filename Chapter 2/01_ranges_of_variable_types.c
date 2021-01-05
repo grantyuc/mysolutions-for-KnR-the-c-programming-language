@@ -30,7 +30,8 @@ int main(int argc, const char *argv[])
     printf("Range of 'unsigned long long': %d to %llu\n\n", 0, ULLONG_MAX);
 
     printf("Range of 'float': %e to %e\n", FLT_MIN, FLT_MAX);
-    printf("Range of 'double': %e to %e\n\n", DBL_MIN, DBL_MAX);
+    printf("Range of 'double': %e to %e\n", DBL_MIN, DBL_MAX);
+    printf("Range of 'long double': %Le to %Le\n\n", LDBL_MIN, LDBL_MAX);
 
     unsigned long long max;
     printf("Direct Computation Test\n");
