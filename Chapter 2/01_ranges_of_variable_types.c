@@ -179,42 +179,30 @@ long double max_ldouble(long double fmax){
 float min_float(float fmin)
 {
     float fnext = 1;
-    while (1) {
+    do {
+        fmin = fnext;
         fnext /= 2;
-        if (isnormal(fnext)) {
-            fmin = fnext;
-        } else {
-            break;
-        }
-    }
+    } while (isnormal(fnext));
     return fmin;
 }
 
 double min_double(double fmin)
 {
     double fnext = 1;
-    while (1) {
+    do {
+        fmin = fnext;
         fnext /= 2;
-        if (isnormal(fnext)) {
-            fmin = fnext;
-        } else {
-            break;
-        }
-    }
+    } while (isnormal(fnext));
     return fmin;
 }
 
 long double min_ldouble(long double fmin)
 {
     long double fnext = 1;
-    while (1) {
+    do {
+        fmin = fnext;
         fnext /= 2;
-        if (isnormal(fnext)) {
-            fmin = fnext;
-        } else {
-            break;
-        }
-    }
+    } while (isnormal(fnext));
     return fmin;
 }
 
