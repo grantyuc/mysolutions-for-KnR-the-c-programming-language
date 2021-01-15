@@ -26,22 +26,20 @@ void reverse(char s[])
 void itoa(int n, char s[])
 {
     int i, sign;
-    int overflow = 0;
+    i = 0;
     if ((sign = n) < 0) /* record sign */
         if(-n > 0)
             n = -n; /* make n positive */
         else {
-            overflow = 1;
-            n = ~n; /* -n overflow, take ~n instead */
+            s[i++] = -(n % 10) + '0';
+            n /= -10;
         }
-    i = 0;
     do { /* generate digits in reverse order */
         s[i++] = n % 10 + '0'; /* get next digit */
     } while ((n /= 10) > 0); /* delete it */
     if (sign < 0)
         s[i++] = '-';
     s[i] = '\0';
-    s[0] += overflow;
     reverse(s);
 }
 
