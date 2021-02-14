@@ -67,3 +67,8 @@ void clear()
 {
     sp = 0;
 }
+
+/* empty: tell if the stack is empty */
+int empty() {
+    return !sp;
+}
