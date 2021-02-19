@@ -11,7 +11,7 @@
 #include <ctype.h>
 #include "stack.c"
 int getop(char s[], char **pline);
-#define NUMBER 0
+#define NUMBER '0'
 #define MAXOP 100 /* max size of operand or operator */
 #define MAXLEN 1000 /* max length of line */
 
