@@ -7,7 +7,7 @@
 
 #include <stdio.h>
 #include <ctype.h>
-#define NUMBER 0
+#define NUMBER '0'
 
 /* getop: get next character or numeric operand */
 int getop(char s[], char **pl)
