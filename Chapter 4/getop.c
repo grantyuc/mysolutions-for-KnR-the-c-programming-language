@@ -33,6 +33,8 @@ int getop(char s[])
         if (c != '.' && !isdigit(c)) {
             return '-'; /* not a number */
         }
+        if (c == '.') // collect decimal point first, deal with -.1
+            s[++i] = getch();
     }
 
     if (isdigit(c)) /* collect integer part */
