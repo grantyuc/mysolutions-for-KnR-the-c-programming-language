@@ -1,12 +1,12 @@
 /*************************************************************************
-  > File Name: getch.c
-  > Description: Ex. in K&R
+  > File Name: getch_one_char.c
+  > Description: Ex. 4.8 in K&R, modified from 'getch.c'
   > Author: Chen, Guan-Yu
-  > Created Time: Fri Feb 12 15:21:03 2021
+  > Created Time: Wed Feb 17 21:44:41 2021
  ************************************************************************/
 
 #include <stdio.h>
-#define BUFSIZE 100
+#define BUFSIZE 1
 
 char buf[BUFSIZE]; /* buffer for ungetch */
 int bufp = 0; /* next free position in buf */
@@ -21,16 +21,4 @@ void ungetch(int c) /* push character back on input */
         printf("ungetch: too many characters\n");
     else
         buf[bufp++] = c;   
-}
-
-void ungets(char s[]) /* push string back on input */
-{
-    int i;
-    for (i = 0; s[i] != '\0'; ++i)
-        ;
-    if (bufp + i >= BUFSIZE)
-        printf("ungets: too many characters\n");
-    else
-        while (i >= 0)
-            buf[bufp++] = s[i--];   
 }
