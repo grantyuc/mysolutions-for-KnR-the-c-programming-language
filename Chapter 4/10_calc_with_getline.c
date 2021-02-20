@@ -39,7 +39,7 @@ int main()
     double var[27] = {0}; /* variables: ans, A-Z */
     while (get_line(line, MAXLEN)) {
         ptr = line;
-        while ((type = getop(s, &ptr)) != EOF) {
+        while ((type = getop(s, &ptr))) {
             switch (type) {
                 case NUMBER:
                     push(atof(s));

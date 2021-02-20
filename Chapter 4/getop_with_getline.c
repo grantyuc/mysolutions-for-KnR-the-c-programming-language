@@ -21,7 +21,7 @@ int getop(char s[], char **pl)
             // for sin, exp, pow
             *pl += 2;
         }
-        return c == '\0' ? EOF : c; /* not a number */
+        return c; /* not a number */
     }
     i = 0;
     if (c == '-') {
